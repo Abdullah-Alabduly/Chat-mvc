@@ -6,5 +6,5 @@
         require 'Routers/'.$inc.'.class.php';
     });
     
-    $db = new Database($db_info);
-    $conn = $db->getConnect();
+    $db_conn = new Database($db_info);
+    // $conn = $db->getConnect();

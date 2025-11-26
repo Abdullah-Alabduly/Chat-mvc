@@ -2,16 +2,16 @@
 
     class Controller
     {
-        public function model($model)
+        public static function model($model)
         {
-            if(file_exists('app/models/' .$model.'.class.php'))
+            if(file_exists('app/Models/' .$model.'.class.php'))
             {
                 require_once 'app/Models/' .$model.'.class.php';
                 return new $model;
             }
         }
 
-        public function view($view, $data = [])
+        public static  function view($view, $data = [])
         {
             if(file_exists('app/Views/' .$view.'.php'))
             {

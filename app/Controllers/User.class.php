@@ -1,7 +1,16 @@
 <?php
+    session_start();
     class User{
+       
+
+
+        public static function index(){
+        }
         
          public static function login(){
-            echo "hello";
+           $userModel = Controller::model('UserModel');
+           $data = $userModel::getdata();
+
+           Controller::view('404',$data);
         }
     }
