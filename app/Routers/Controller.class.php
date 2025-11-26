@@ -13,9 +13,9 @@
 
         public static  function view($view, $data = [])
         {
-            if(file_exists('app/Views/' .$view.'.php'))
+            if(file_exists('app/Views/' .$view.'.view.php'))
             {
-                require_once 'app/Views/' .$view.'.php';
+                require_once 'app/Views/' .$view.'.view.php';
             }
             else
             {

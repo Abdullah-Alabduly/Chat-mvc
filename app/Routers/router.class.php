@@ -1,6 +1,6 @@
 <?php
     class Router {
-        private $Controller = "404";
+        private $Controller = "Page";
         private $method = "index";
         // private $param = [];
 
@@ -8,6 +8,7 @@
         '/' =>'Home',
         'login' =>'User',
         'register' => 'User',
+        'reg' => 'User',
     ];
 
         public function __construct()

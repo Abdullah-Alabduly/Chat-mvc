@@ -9,7 +9,7 @@
          <section class = "form signup">
             <header>Register</header>
             
-            <form action="" enctype="multipart/form-data">
+            <form action="" enctype="multipart/form-data" method="POST">
                 <div class="error-txt"></div>
 
                 <div class="name-details">          
@@ -42,8 +42,8 @@
             <div class="link">Already signed up <a href="login.php">Log in</a></div>
          </section>
     </div>
-    <script src="JS/pass-show-hide.js"></script>
-    <script src="JS/signup.js"></script>
+    <script src="../../public/JS/pass-show-hide.js"></script>
+    <script src="../../public/JS/signup.js"></script>
    
 </body>
 </html>

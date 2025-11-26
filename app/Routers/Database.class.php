@@ -8,7 +8,6 @@
         public function __construct($db_info)
         {
             $dsn = 'mysql:'.http_build_query($db_info,'',';');
-            echo $dsn;
             // $dsn = 'mysql:host='.$this->host .";port=".$this->port. ";dbname=" .$this->db_name;
 
             try {
