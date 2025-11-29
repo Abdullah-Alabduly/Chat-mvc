@@ -42,8 +42,8 @@
             <div class="link">Already signed up <a href="login.php">Log in</a></div>
          </section>
     </div>
-    <script src="../../public/JS/pass-show-hide.js"></script>
-    <script src="../../public/JS/signup.js"></script>
+    <script src="app/Views/Js/pass-show-hide.js"></script>
+    <script src="app/Views/Js/signup.js"></script>
    
 </body>
 </html>

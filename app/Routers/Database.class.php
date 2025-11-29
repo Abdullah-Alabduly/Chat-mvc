@@ -12,6 +12,7 @@
 
             try {
                 $this->pdo = new PDO($dsn,'root','');
+                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die("There is an issue: ".$e->getMessage());
             }

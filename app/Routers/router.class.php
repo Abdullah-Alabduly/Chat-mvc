@@ -48,6 +48,6 @@
             }          
              $class = $this->Controller;
              $func = $this->method;
-             $class::$func();
+            $class::$func();
         }
     }
