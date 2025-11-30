@@ -32,12 +32,7 @@
              $this->conn->execute();
              return $this->conn->rowCount();
         }
-
-        public  function getdata(){
-            $query = $this->conn->query("SELECT * FROM users");
-            
-            $data = "hello";
-            
-            return $data;
+        public function close(){
+            $this->conn=null;
         }
     }

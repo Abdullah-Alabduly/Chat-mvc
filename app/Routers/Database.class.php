@@ -58,16 +58,20 @@
         // Fetch All
         public function fetchAll(){
             $this->stmt->execute();
-            $result = $this->stmt->fetchAll();
+            $result = $this->stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
         public function fetch(){
             $this->stmt->execute();
-            $result = $this->stmt->fetch();
+            $result = $this->stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         }
 
         public function rowCount(){
             return $this->stmt->rowCount();
+        }
+
+        public function close(){
+            $this->pdo = null;
         }
     }

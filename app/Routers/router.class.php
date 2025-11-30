@@ -8,7 +8,7 @@
         '/' =>'Home',
         'login' =>'User',
         'register' => 'User',
-        'reg' => 'User',
+        'chatlist' => 'ChatList',
     ];
 
         public function __construct()
@@ -32,14 +32,15 @@
 
             if($url != null){  
                 
-                $url = strtolower($url);   
-                                
+                // $url = strtolower($url);   
+                           
                 if(array_key_exists($url, $this->routes)){
                     
                     $this->Controller = $this->routes[$url];
                     
                 }        
             }
+            
             require_once 'app/Controllers/'.$this->Controller.'.class.php';
 
                 if(method_exists($this->Controller, $url)){
