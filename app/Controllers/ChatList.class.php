@@ -39,7 +39,7 @@
             if(!empty($chats)){
                 foreach ($chats as $chat) {
                     ($chat['status'] == 1)? $status = "🟢": $status = "🔘";
-                     $output .='<a href="chat.php?user_id='.$chat['unique_id'].'">
+                     $output .='<a href="chat?user_id='.$chat['unique_id'].'">
                                 <div class="content">
                                     <img src="app/images/'.$chat['img'].'" alt="">
                                     <div class="details">

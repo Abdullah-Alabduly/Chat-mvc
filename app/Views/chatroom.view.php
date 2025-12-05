@@ -1,23 +1,18 @@
 <?php 
-    // session_start();
-    // if(!isset($_SESSION['unique_id'])){
-    //     header("location: login.php");
-    // }else{
-    //    include_once 'php/userData.php';
-    //    $user_id = preg_replace('/\D/', '', $_GET['user_id']);
-    //    $row = getUserDate( (int) $user_id);
-    // }
+    if(!isset($_SESSION['unique_id'])){
+        header("location: login");
+    }
 ?>
 <?php include_once 'header.php'?>
     <div class = "wrapper">
         <!-- Form Signup -->
          <section class = "chat-area">
             <header>
-                    <a href="users.php" class="back-icon"> <i class ="arrow-left">←</i></a>
-                    <img src="images/<?php echo $row['img']?>" alt="">
+                    <a href="profile" class="back-icon"> <i class ="arrow-left">←</i></a>
+                    <img src="app/images/<?php echo $data['img']?>" alt="">
                     <div class="details">
-                        <span><?=$row['fname']." ". $row['lname']?></span>
-                        <p><?php ($row['status'] == 1)? $status = "Active Now": $status = "Non Active"; echo $status?></p>
+                        <span><?=$data['fname']." ". $data['lname']?></span>
+                        <p><?php ($data['status'] == 1)? $status = "Active Now": $status = "Non Active"; echo $status?></p>
                 </div>
             </header>
 
@@ -29,7 +24,7 @@
                 <input type="text" name="sender_id" value="<?=$_SESSION['unique_id']?>" hidden>
                 <input type="text" name="resciver_id"  value="<?=$user_id?>" hidden>
                 <input type="text" name="message" class="input-faild" placeholder="Type a message here...">
-                <button class="send-icon"><img src="send.png" alt=""></button>
+                <button class="send-icon"><img src="app/images/send.png" alt=""></button>
             </form>
          </section>
     </div>

@@ -12,6 +12,7 @@
         'chatlist' => 'ChatList',
         'profile' => 'ChatList',
         'search' => 'ChatList',
+        'chat' =>'ChatRoom',
     ];
 
         public function __construct()
