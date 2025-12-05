@@ -51,7 +51,7 @@ searchBar.onkeyup = ()=>{
 
 logout.onclick = ()=>{
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/logout.php");
+    xhr.open("POST", "logout");
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){

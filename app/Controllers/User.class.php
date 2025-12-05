@@ -1,6 +1,4 @@
 <?php session_start();
-
-    
     class User  extends UserHelper{
         private static $userModel = null;
         private static $userData = [];
@@ -64,28 +62,15 @@
             }
             
         }
+        public static function logout(){
+            if(isset($_SESSION['unique_id'])){
+                if($_POST['logout'] == true){
+                    self::$userModel = Controller::model('UserModel');
+                    self::$userModel->updateStatus($_SESSION['unique_id']);
+                    session_unset();
+                    session_destroy();
+                    Controller::view("login");
+                }           
+            }
+        }
     }
-
-
-
-    // session_start();
-    // include_once 'config.php';
-    // $email = mysqli_real_escape_string($conn,$_POST['email']);
-    // $password = mysqli_real_escape_string($conn,$_POST['password']);
-
-    // if(!empty($email) && !empty($password)){
-
-    //         $sql =mysqli_query($conn,"SELECT * FROM users WHERE email = '{$email}' AND password = '{$password}'");
-    //         if(mysqli_num_rows($sql) > 0){
-    //             $row = mysqli_fetch_assoc($sql);
-    //             $_SESSION['unique_id'] = $row['unique_id'];
-    //             $sql = "UPDATE users SET status = 1 WHERE unique_id = {$_SESSION['unique_id']}";
-    //             mysqli_execute_query($conn, $sql);
-    //             echo "Success";
-    //         }else{
-    //             echo "The email or the password is incorrect!";
-    //         }
-
-    // }else{
-    //     echo "All inputs are required";
-    // }

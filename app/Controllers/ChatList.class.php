@@ -3,9 +3,13 @@
     class ChatList{
         private static $chatModel;
          public static function profile(){
-             self::$chatModel = Controller::model('ChatListModel');
-             $profile = self::$chatModel->getUserData($_SESSION['unique_id']);
-            Controller::view('chatlist',$profile);
+            if(isset($_SESSION['unique_id'])){
+                self::$chatModel = Controller::model('ChatListModel');
+                $profile = self::$chatModel->getUserData($_SESSION['unique_id']);
+               Controller::view('chatlist',$profile);
+            }else{
+                header("location: login");
+            }
     
         }
         public static function chatlist(){

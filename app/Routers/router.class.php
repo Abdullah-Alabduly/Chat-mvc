@@ -7,6 +7,7 @@
         private $routes= [
         '/' =>'Home',
         'login' =>'User',
+        'logout' =>'User',
         'register' => 'User',
         'chatlist' => 'ChatList',
         'profile' => 'ChatList',
