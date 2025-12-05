@@ -11,6 +11,7 @@
         'register' => 'User',
         'chatlist' => 'ChatList',
         'profile' => 'ChatList',
+        'search' => 'ChatList',
     ];
 
         public function __construct()

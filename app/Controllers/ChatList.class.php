@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    class ChatList{
+    class ChatList extends UserHelper{
         private static $chatModel;
          public static function profile(){
             if(isset($_SESSION['unique_id'])){
@@ -16,6 +16,27 @@
             $output="";
             self::$chatModel = Controller::model('ChatListModel');
                 $chats = self::$chatModel->getChatslist($_SESSION['unique_id']);
+                self::showChats($chats, $output);
+            echo $output;
+        }
+
+        
+
+        public static function search(){
+            $output = "";
+            if(isset($_POST['searchTerm'])){
+                $searchTerm = self::filterValue($_POST['searchTerm']);
+                self::$chatModel = Controller::model('ChatListModel');
+                $chats = self::$chatModel->findByName($searchTerm, $_SESSION['unique_id']);
+                
+                self::showChats($chats , $output);
+                echo $output;
+            }
+        }
+
+        // helper func
+        public static function showChats($chats, &$output){
+            if(!empty($chats)){
                 foreach ($chats as $chat) {
                     ($chat['status'] == 1)? $status = "🟢": $status = "🔘";
                      $output .='<a href="chat.php?user_id='.$chat['unique_id'].'">
@@ -29,7 +50,8 @@
                                  <div class="status-dot"><i class="circle">'.$status.'</i></div>
                                 </a>';  
                 }
-            echo $output;
-        }
+            }else $output .="No User Found";
+            
+        } 
 
     }

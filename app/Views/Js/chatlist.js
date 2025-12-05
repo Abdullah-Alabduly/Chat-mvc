@@ -22,12 +22,13 @@ searchBar.onkeyup = ()=>{
             if(xhr.status === 200){
                 let data = xhr.response;
                 usersList.innerHTML = data;
+                console.log(data);
             }
         }
     }
     // to send the data as key => value
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("searchTerm=" + searchTerm);
+    xhr.send("searchTerm="+searchTerm);
     
 }
 

@@ -39,6 +39,15 @@
 
         }
 
+        public function findByName($name, $currentUser){
+            $SQL = "SELECT * FROM users
+                        WHERE NOT unique_id =:currentUser 
+                        AND (fname LIKE '%{$name}%' OR lname LIKE '%{$name}%')";
+           $this->conn->query($SQL); 
+           $this->conn->bind(':currentUser', $currentUser);              
+           return $this->conn->fetchAll(); 
+        }
+
 
     }
     

@@ -40,9 +40,10 @@
             return $this->conn->fetch();
         }
 
-        public function updateStatus($userId){
-            $SQL ="UPDATE users SET status =0 WHERE unique_id =:userId";
+        public function updateStatus($userId, $status){
+            $SQL ="UPDATE users SET status =:status WHERE unique_id =:userId";
             $this->conn->query($SQL);
+            $this->conn->bind(":status", $status);
             $this->conn->bind(":userId", $userId);
             $this->conn->execute();
         }

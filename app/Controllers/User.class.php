@@ -7,6 +7,9 @@
             Controller::view('register');
         }
         public static function register(){
+            if(isset($_SESSION['unique_id'])){
+                    header("location: profile");
+            }else
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 self::fetchData($_POST, self::$userData, 'image');
                 self::cleanInputs(self::$userData);
@@ -40,6 +43,9 @@
         }
 
         public static function login(){
+            if(isset($_SESSION['unique_id'])){
+                    header("location: profile");
+            }else
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 self::fetchData($_POST, self::$userData);
                 self::cleanInputs(self::$userData);
@@ -50,6 +56,7 @@
                         $rowUser = self::$userModel->getUserLog(self::$userData['email'], self::$userData['password']);
                         if(!empty($rowUser)){
                             $_SESSION['unique_id'] = $rowUser['unique_id'];
+                            self::$userModel->updateStatus($_SESSION['unique_id'], 1);
                             echo "Success";
                         }else echo "Email or password is wrong";
 
@@ -66,7 +73,7 @@
             if(isset($_SESSION['unique_id'])){
                 if($_POST['logout'] == true){
                     self::$userModel = Controller::model('UserModel');
-                    self::$userModel->updateStatus($_SESSION['unique_id']);
+                    self::$userModel->updateStatus($_SESSION['unique_id'], 0);
                     session_unset();
                     session_destroy();
                     Controller::view("login");
