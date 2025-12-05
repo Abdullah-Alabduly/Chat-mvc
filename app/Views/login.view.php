@@ -1,4 +1,5 @@
-<?php include_once 'header.php'?>
+<?php 
+include_once 'header.php'?>
 <body>
 
     <div class = "wrapper">
@@ -18,13 +19,13 @@
                         <i class="fas fa-eye"></i>
                     </div>
                 <div class="field button">
-                        <input type="submit"  value="Sign up">
+                        <input type="submit"  value="Log in">
                     </div>
             </form>
-            <div class="link">Not yet signed up <a href="index.php">Sign up now</a></div>
+            <div class="link">Not yet signed in: <a href="index.php">Sign in now</a></div>
          </section>
     </div>
-    <script src="JS/pass-show-hide.js"></script>
-    <script src="JS/login.js"></script>
+    <script src="app/Views/JS/pass-show-hide.js"></script>
+    <script src="app/Views/JS/login.js"></script>
 </body>
 </html>

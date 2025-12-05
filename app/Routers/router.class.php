@@ -9,6 +9,7 @@
         'login' =>'User',
         'register' => 'User',
         'chatlist' => 'ChatList',
+        'profile' => 'ChatList',
     ];
 
         public function __construct()

@@ -74,4 +74,7 @@
         public function close(){
             $this->pdo = null;
         }
+        // public function joinSelect($userId){
+
+        // }
     }

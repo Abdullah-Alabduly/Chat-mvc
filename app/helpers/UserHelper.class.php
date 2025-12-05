@@ -1,7 +1,7 @@
 <?php
 class UserHelper{
 
-    public static function filterValue(string $value):string{
+    public static function filterValue(string &$value):string{
                 $value = trim($value);
                 $value = strip_tags($value);
                 $value = htmlentities($value, ENT_QUOTES, 'UTF-8');
@@ -10,7 +10,7 @@ class UserHelper{
             return $value;
         }
 
-    public static function cleanInputs($userData){
+    public static function cleanInputs(&$userData){
             foreach($userData as $value){
                 $value = self::filterValue($value);
         }
@@ -25,7 +25,7 @@ class UserHelper{
                 }
             }  return $emptyInput;
     }
-    public static function fetchData(array $inputs, &$userData, $ignoredKey){
+    public static function fetchData(array $inputs, &$userData, $ignoredKey=""){
             foreach ($inputs as $key => $value) {
                 if($key !== $ignoredKey){
                     $userData[$key] = $value;

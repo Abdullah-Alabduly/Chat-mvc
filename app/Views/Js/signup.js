@@ -18,13 +18,12 @@ signBtn.onclick = ()=>{
         ).then(
             data =>{             
                 if(data === "Success"){
-                    location.href = "chatlist";
-                    console.log(data);
+                    location.href = "profile";
                 }else{
-                    location.href = "users";
-                    // console.log(data);
-                    //  errorText.textContent = data;
-                    //  errorText.style.display = "block";
+                    
+                    console.log(data);
+                     errorText.textContent = data;
+                     errorText.style.display = "block";
                 }
             }).catch(
                     error =>{

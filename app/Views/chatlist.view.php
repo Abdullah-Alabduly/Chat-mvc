@@ -8,14 +8,14 @@
          <section class = "users">
             <header>
                 <div class="content">
-                    <img src="images/<?php echo $data['img']?>" alt="">
+                    <img src="app/images/<?php echo $data['img']?>" alt="">
                     <div class="details">
                         <span><?php echo $data['fname'].' '.$data['lname']?></span>
                         <p><?php ($data['status'] == 1)? $status = "Active Now": $status = "Non Active"; echo $status?></p>
                     </div>
                 </div>
                 <!-- <div class="logout">Logout</div> -->
-                <a href="login.php" class="logout">Logout</a>
+                <a href="login" class="logout">Logout</a>
             </header>
             <div class="search">
                 <span class="text">Select an user to start chat</span>
@@ -27,6 +27,6 @@
             </div>
          </section>
     </div>
-    <script src="JS/users.js"></script>
+    <script src="app/Views/Js/chatlist.js"></script>
 </body>
 </html>

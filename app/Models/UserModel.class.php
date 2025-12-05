@@ -32,6 +32,13 @@
              $this->conn->execute();
              return $this->conn->rowCount();
         }
+        public function getUserlog($email, $password){
+            $SQL = "SELECT * FROM users WHERE email = :userEmail AND password = :userPass";
+            $this->conn->query($SQL);
+            $this->conn->bind(':userEmail', $email);
+            $this->conn->bind(':userPass', $password);
+            return $this->conn->fetch();
+        }
         public function close(){
             $this->conn=null;
         }
