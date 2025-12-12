@@ -22,7 +22,7 @@ include_once 'header.php'?>
                         <input type="submit"  value="Log in">
                     </div>
             </form>
-            <div class="link">Not yet signed in: <a href="index.php">Sign in now</a></div>
+            <div class="link">Not yet signed in: <a href="register">Sign in now</a></div>
          </section>
     </div>
     <script src="app/Views/JS/pass-show-hide.js"></script>

@@ -2,6 +2,7 @@
     if(!isset($_SESSION['unique_id'])){
         header("location: login");
     }
+    $user_id = preg_replace('/\D/', '', $_GET['user_id']);
 ?>
 <?php include_once 'header.php'?>
     <div class = "wrapper">
@@ -21,9 +22,9 @@
             </div>
 
             <form action="" class="typing-area">
-                <input type="text" name="sender_id" value="<?=$_SESSION['unique_id']?>" hidden>
-                <input type="text" name="resciver_id"  value="<?=$user_id?>" hidden>
-                <input type="text" name="message" class="input-faild" placeholder="Type a message here...">
+                <input type="text" name="msg_sender_id" value="<?=$_SESSION['unique_id']?>" hidden>
+                <input type="text" name="msg_resciver_id"  value="<?=$user_id?>" hidden>
+                <input type="text" name="msg" class="input-faild" placeholder="Type a message here...">
                 <button class="send-icon"><img src="app/images/send.png" alt=""></button>
             </form>
          </section>

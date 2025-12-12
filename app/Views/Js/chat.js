@@ -9,7 +9,7 @@ form.onsubmit = (e) =>{
 sendBtn.onclick = ()=>{
 
     let xhr = new XMLHttpRequest();
-    xhr.open('POST','php/insert-chat.php',true);
+    xhr.open('POST','send_msg',true);
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
@@ -31,7 +31,7 @@ chatBox.onmouseleave = ()=>{
 
 // setInterval(()=>{
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/get-chat.php");
+    xhr.open("POST", "getMsgs");
     xhr.onload = ()=>{
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){

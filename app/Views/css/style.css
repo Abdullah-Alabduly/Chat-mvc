@@ -193,7 +193,7 @@ form .name-details .field:last-child{
     height: 42px;
     border: none;
     outline: none;
-    color: #333;
+    color: royalblue;
     background: #fff;
     cursor: pointer;
     font-size: 17px;
@@ -290,7 +290,7 @@ overflow-y: auto;
     max-width: calc(100% - 130px);
 }
 .outgoing .details p{
-    background: #333;
+    background: royalblue;
     color: #fff;
     border-radius: 18px 18px 0 18px;
 }
@@ -331,7 +331,7 @@ overflow-y: auto;
     width: 55px;
     border: none;
     outline: none;
-    background: #333;
+    background: royalblue;
     color: #fff;
     font-size: 19px;
     cursor: pointer;

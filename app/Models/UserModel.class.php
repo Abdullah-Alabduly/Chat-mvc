@@ -14,7 +14,7 @@
             $this->conn->execute();
             return $this->conn->rowCount();
         }
-
+        // duplicated
         public function addNewUser($data){
 
             if(empty($data))return false;

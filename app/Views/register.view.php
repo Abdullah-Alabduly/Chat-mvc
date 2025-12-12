@@ -39,7 +39,7 @@
                         <input type="submit" name="" value="Sign up">
                     </div>
             </form>
-            <div class="link">Already signed up <a href="login.php">Log in</a></div>
+            <div class="link">Already signed up <a href="login">Log in</a></div>
          </section>
     </div>
     <script src="app/Views/Js/pass-show-hide.js"></script>

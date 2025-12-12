@@ -13,6 +13,8 @@
         'profile' => 'ChatList',
         'search' => 'ChatList',
         'chat' =>'ChatRoom',
+        'send_msg' =>'ChatRoom',
+        'getMsgs' =>'ChatRoom',
     ];
 
         public function __construct()
