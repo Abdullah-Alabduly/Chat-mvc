@@ -58,7 +58,7 @@
                                 </div>';
                     }else{ // resciver message
                         $output .= '<div class="chat incoming">
-                                        <img src = "../images/'.$msg['img'].'">
+
                                         <div class="details">
                                             <p>'.$msg['msg'].'</p>
                                         </div>

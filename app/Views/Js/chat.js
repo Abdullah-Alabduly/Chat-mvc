@@ -29,7 +29,7 @@ chatBox.onmouseleave = ()=>{
     chatBox.classList.remove('active');
 }
 
-// setInterval(()=>{
+setInterval(()=>{
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "getMsgs");
     xhr.onload = ()=>{
@@ -45,7 +45,7 @@ chatBox.onmouseleave = ()=>{
     let formData = new FormData(form);
     xhr.send(formData);
     
-// }, 500);
+}, 500);
 
 function scrolToEnd(){
     chatBox.scrollTop = chatBox.scrollHeight;

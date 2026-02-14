@@ -33,7 +33,7 @@ searchBar.onkeyup = ()=>{
 }
 
 
-// setInterval(()=>{
+setInterval(()=>{
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "chatlist");
     xhr.onload = ()=>{
@@ -48,7 +48,7 @@ searchBar.onkeyup = ()=>{
     }
     xhr.send();
     
-// }, 800);
+}, 800);
 
 logout.onclick = ()=>{
     let xhr = new XMLHttpRequest();

@@ -37,8 +37,7 @@
         function routToController($url){
 
             if($url != null){  
-                
-                // $url = strtolower($url);   
+                  
                            
                 if(array_key_exists($url, $this->routes)){
                     
