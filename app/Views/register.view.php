@@ -31,9 +31,11 @@
                         <input type="password" name="password" placeholder="Enter your password" required>
                         <i class="fas fa-eye">👁️</i>
                     </div>
+                <!-- [Visual review] The label was not linked to the input (for=""),
+                     so clicking "Select Image" did nothing; it now opens the picker. -->
                 <div class="field image">
-                        <label for="">Select Image</label>
-                        <input type="file" name="image">
+                        <label for="image">Select Image</label>
+                        <input type="file" name="image" id="image">
                     </div>
                 <div class="field button">
                         <input type="submit" name="" value="Sign up">

@@ -81,8 +81,27 @@ form .name-details .field:last-child{
     border-radius: 5px;
 }
 
-.form form .image input{
-    font-size: 17px;
+/* [Visual review] The browser's default file picker ignored the form styling
+   and looked broken inside the card, so it now matches the other fields. */
+.form form .image input[type="file"]{
+    width: 100%;
+    font-size: 13px;
+    color: #444;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+.form form .image input[type="file"]::file-selector-button{
+    margin-right: 10px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    background: royalblue;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
 }
 .form form .button input{
     margin-top: 13px;
@@ -151,7 +170,9 @@ form .name-details .field:last-child{
 }
 :is(.users, .users-list) .details span{
     font-size: 18px;
-    font-weight: 54 0;
+    /* [Visual review] "54 0" was not a valid weight, so the name kept the
+       default one; 500 is what was meant here. */
+    font-weight: 500;
 }
 .users header .logout{
     color: #fff;
@@ -204,11 +225,14 @@ form .name-details .field:last-child{
     color: #fff;
     background: royalblue;
 }
+/* [Visual review] The icon font was disabled in the header, so the old
+   placeholder character showed up as a broken glyph. Real characters are used
+   instead: a magnifier for search and a cross for closing the search bar. */
 .users .search button i::before{
-    content: "ϙ";
+    content: "\1F50D";
 }
 .users .search button.active i::before{
-    content: "X";
+    content: "\2715";
 }
 .users-list{
 max-height: 350px;
