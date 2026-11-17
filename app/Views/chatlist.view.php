@@ -15,7 +15,8 @@
                     </div>
                 </div>
                 <!-- <div class="logout">Logout</div> -->
-                <a href="login" class="logout">Logout</a>
+                <!-- [Real-time] Plain link instead of an AJAX logout call. -->
+                <a href="logout" class="logout">Logout</a>
             </header>
             <div class="search">
                 <span class="text">Select an user to start chat</span>

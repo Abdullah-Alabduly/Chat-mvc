@@ -12,7 +12,10 @@
             $this->conn->query($SQL);
             $this->conn->bind(':userEmail', $email);
             $this->conn->execute();
-            return $this->conn->rowCount();
+            // [SQLite migration] PDO SQLite always returns 0 from rowCount()
+            // on a SELECT, which made the "email already exists" check useless.
+            // The real number of rows is counted from the fetched result.
+            return count($this->conn->fetchAll());
         }
         // duplicated
         public function addNewUser($data){

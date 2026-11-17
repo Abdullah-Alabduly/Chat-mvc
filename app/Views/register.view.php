@@ -42,6 +42,7 @@
             <div class="link">Already signed up <a href="login">Log in</a></div>
          </section>
     </div>
+    <!-- [Linux paths] The real folder is "Js"; the old uppercase path only worked on Windows. -->
     <script src="app/Views/Js/pass-show-hide.js"></script>
     <script src="app/Views/Js/signup.js"></script>
    

@@ -25,7 +25,8 @@ include_once 'header.php'?>
             <div class="link">Not yet signed in: <a href="register">Sign in now</a></div>
          </section>
     </div>
-    <script src="app/Views/JS/pass-show-hide.js"></script>
-    <script src="app/Views/JS/login.js"></script>
+    <!-- [Linux paths] The real folder is "Js"; the old uppercase path only worked on Windows. -->
+    <script src="app/Views/Js/pass-show-hide.js"></script>
+    <script src="app/Views/Js/login.js"></script>
 </body>
 </html>

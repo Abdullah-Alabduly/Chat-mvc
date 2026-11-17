@@ -29,6 +29,7 @@
             </form>
          </section>
     </div>
-    <script src="app/views/JS/chat.js"></script>
+    <!-- [Linux paths + Real-time] chat.js now talks to the SSE stream endpoint. -->
+    <script src="app/Views/Js/chat.js"></script>
 </body>
 </html>

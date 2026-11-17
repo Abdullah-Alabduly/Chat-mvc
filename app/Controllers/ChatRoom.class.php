@@ -1,5 +1,9 @@
 <?php
-    session_start();
+    // [Real-time] Only start the session if none is active yet, so this file can
+    // be autoloaded from inside the long-lived stream without a PHP notice.
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
 
     class ChatRoom extends UserHelper{
 
@@ -25,6 +29,9 @@
                 if(!$isEmpty){
                     self::$chatRoomModel->insert_msg($chatdata);
                 }
+                // [Real-time] The answer is a simple ok; the new message reaches
+                // both browsers through the SSE stream, not through this reply.
+                echo "sent";
             }else{
                 header("location: login");
             }
@@ -44,6 +51,14 @@
                 header("location: login");
             }
 
+        }
+
+        // [Real-time] Same markup as printMsgs(), but returned as a string so the
+        // SSE stream can push it as one "messages" event.
+        public static function msgsHtml($senderId, $resciverId){
+            self::$chatRoomModel = Controller::model('chatRoomModel');
+            $rowchat = self::$chatRoomModel->getMsgs($senderId, $resciverId);
+            return self::printMsgs($rowchat);
         }
 
         public static function printMsgs($msgsdata){

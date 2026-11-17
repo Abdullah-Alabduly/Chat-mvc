@@ -1,4 +1,9 @@
-<?php session_start();
+<?php
+    // [Real-time] Only start the session if none is active yet, so this file can
+    // be autoloaded from inside the long-lived stream without a PHP notice.
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
     class User  extends UserHelper{
         private static $userModel = null;
         private static $userData = [];
@@ -69,15 +74,16 @@
             }
             
         }
+        // [Real-time] Logout is now a normal link (no AJAX call), so it must work
+        // with a GET request and always end with a redirect to the login page.
         public static function logout(){
             if(isset($_SESSION['unique_id'])){
-                if($_POST['logout'] == true){
-                    self::$userModel = Controller::model('UserModel');
-                    self::$userModel->updateStatus($_SESSION['unique_id'], 0);
-                    session_unset();
-                    session_destroy();
-                    Controller::view("login");
-                }           
+                self::$userModel = Controller::model('UserModel');
+                self::$userModel->updateStatus($_SESSION['unique_id'], 0);
             }
+            session_unset();
+            session_destroy();
+            header("location: login");
+            exit;
         }
     }

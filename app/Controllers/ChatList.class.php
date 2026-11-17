@@ -1,5 +1,9 @@
 <?php 
-    session_start();
+    // [Real-time] Only start the session if none is active yet, so this file can
+    // be autoloaded from inside the long-lived stream without a PHP notice.
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
     class ChatList extends UserHelper{
         private static $chatModel;
          public static function profile(){
@@ -12,12 +16,22 @@
             }
     
         }
+
+        // [Real-time] The chat list HTML is now produced by chatsHtml() so the
+        // real-time stream and this endpoint always return identical markup.
         public static function chatlist(){
-            $output="";
+            if(!isset($_SESSION['unique_id'])) return;
+            echo self::chatsHtml($_SESSION['unique_id']);
+        }
+
+        // [Real-time] Returns the rendered chat list as a string instead of
+        // echoing it, which is what the SSE stream needed.
+        public static function chatsHtml($userId){
+            $output = "";
             self::$chatModel = Controller::model('ChatListModel');
-                $chats = self::$chatModel->getChatslist($_SESSION['unique_id']);
-                self::showChats($chats, $output);
-            echo $output;
+            $chats = self::$chatModel->getChatslist($userId);
+            self::showChats($chats, $output);
+            return $output;
         }
 
         

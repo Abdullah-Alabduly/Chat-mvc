@@ -15,6 +15,9 @@
         'chat' =>'ChatRoom',
         'send_msg' =>'ChatRoom',
         'getMsgs' =>'ChatRoom',
+        // [Real-time] Single long-lived connection that pushes new messages and
+        // chat list updates to the browser (replaces the AJAX polling).
+        'stream' =>'Stream',
     ];
 
         public function __construct()
