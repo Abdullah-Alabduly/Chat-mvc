@@ -31,6 +31,9 @@
                             if(preg_match('/^[0-9]/', $response)){
                                 $status = 1;
                                 $random_id = rand(time(), 10000000);
+                                // [Password hashing] Only the hash of the password is
+                                // stored; the plain value never reaches the database.
+                                self::$userData['password'] = password_hash(self::$userData['password'], PASSWORD_DEFAULT);
                                 self::$userData = array_merge(['unique_id'=> $random_id], self::$userData);
                                 self::$userData = array_merge(self::$userData, ['img' => $response]);
                                 self::$userData = array_merge(self::$userData, ['status' => $status]);

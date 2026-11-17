@@ -17,6 +17,7 @@ maintain it.
 - Search the user list by first or last name.
 - Open a conversation and exchange messages.
 - See who is online (🟢) and the last message of every conversation in the sidebar.
+- Passwords are stored as `password_hash()` hashes and checked with `password_verify()`.
 - Messages, online status and the chat list update **instantly**, without refreshing the page.
 
 Demo accounts that exist in the current database file (created while testing):
@@ -133,6 +134,12 @@ The connection also enables:
 - `PRAGMA busy_timeout = 5000` — a request waits for a lock instead of failing with
   "database is locked" when two users write at the same moment.
 
+**Passwords.** The `password` column now holds a hash created by `password_hash()`, never the plain
+password. On login the app loads the row by email and checks the value with `password_verify()`.
+Accounts created before hashing was added still contain plain text: those are accepted once with
+their old password and immediately re-hashed, so an old account keeps working and is upgraded on its
+very next login (`UserModel::getUserlog()` and `UserModel::updatePassword()`).
+
 To start from an empty database, just delete `app/database/chat.sqlite` (and the `-wal` / `-shm`
 files next to it); it is re-created on the next request.
 
@@ -180,8 +187,6 @@ How it works:
 
 These are the things I know are still open in the project:
 
-- Passwords are stored as plain text; the login query compares the raw password. Hashing with
-  `password_hash()` / `password_verify()` is the next thing I want to add.
 - No CSRF token on the forms, and no limit on the uploaded image size.
 - The stream renders the full conversation HTML on every change. That is fine for a chat of this
   size; for very long conversations I would send only the new message.
